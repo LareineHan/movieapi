@@ -1,0 +1,121 @@
+.app-layout {
+	background-color: transparent;
+	padding: 0;
+}
+
+nav .container-fluid {
+	justify-content: center;
+	max-height: 50px;
+}
+.main-nav-bar {
+	/* background-color: transparent;
+    max-height: 100px; */
+	margin-bottom: 3px; /* for logo centering */
+	background-image: linear-gradient(
+		180deg,
+		rgba(0, 0, 0, 0.7) 10%,
+		transparent
+	);
+}
+
+.nav-menu a {
+	color: rgb(255, 255, 255);
+	font-size: 14px;
+}
+
+.nav-menu a:hover {
+	color: #e50914;
+}
+.search-area {
+	height: 36px;
+	margin: 16px 10px 10px 0;
+}
+
+.search-input {
+	height: 32px;
+	background-color: transparent;
+	border-radius: 0;
+}
+.search-input:focus {
+	border: 1px solid white;
+	background-color: rgba(0, 0, 0, 0.8);
+	color: white;
+}
+.form-control:focus {
+	box-shadow: none;
+}
+
+.search-input::placeholder {
+	color: rgba(255, 255, 255, 0.74);
+	font-size: 14px;
+}
+.search-btn {
+	height: 32px;
+	border-radius: 0;
+	display: flex;
+	background-color: #e50914;
+	align-items: center;
+}
+.user {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+	height: 34px;
+	border: 1.5px solid whitesmoke;
+}
+.user svg {
+	text-align: center;
+	color: whitesmoke;
+}
+.user:hover > svg,
+.user:hover {
+	color: #e50914;
+	border-color: #e50914;
+}
+
+@media screen and (max-width: 768px) {
+	.main-nav-bar {
+		margin-bottom: 10px;
+	}
+	/* .navbar-toggler {
+		background-color: white !important;
+	} */
+
+	.navbar-toggler-icon {
+		filter: invert(8%) sepia(85%) saturate(5689%) hue-rotate(348deg)
+			brightness(137%) contrast(113%);
+		background-image: url('../images/menu-burger-vertical-svgrepo-com.svg');
+	}
+
+	.navbar-collapse {
+		display: flex;
+		background-color: black;
+		border-radius: 0;
+		flex-direction: column;
+		align-items: flex-end;
+		padding: 2rem 0rem 1rem 1rem;
+		z-index: 2;
+	}
+	.nav-menu {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-end;
+	}
+	.me-auto {
+		margin: 0 !important;
+		padding-right: 1rem;
+	}
+	.search-area {
+		margin: 1rem 0 1rem 0;
+		padding-right: 1rem;
+	}
+	.search-input,
+	.search-btn {
+		height: inherit;
+	}
+	.navbar-collapse > .user {
+		margin: 1rem 0 1rem 0;
+		padding-right: 1rem;
+	}
+}

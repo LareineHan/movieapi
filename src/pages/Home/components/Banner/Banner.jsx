@@ -20,7 +20,7 @@ const Banner = () => {
 	const genreName_array = () => {
 		let array = [];
 		if (data && genreData) {
-			for (let i = 0; i < data.results[0].genre_ids.length; i++) {
+			for (let i = 0; i < data?.results[0].genre_ids.length; i++) {
 				for (let j = 0; j < genreData.length; j++) {
 					if (data.results[0].genre_ids[i] === genreData[j].id) {
 						array.push(genreData[j].name);
@@ -61,7 +61,7 @@ const Banner = () => {
 						<h1 className='banner-movie-title'>{bannerMovie?.title}</h1>
 						<hr />
 						<Row sm>
-							<p className='banner-movie-overview'>{bannerMovie.overview}</p>
+							<p className='banner-movie-overview'>{bannerMovie?.overview}</p>
 						</Row>
 						<Row sm>
 							<div className='banner-movie-genres'>

@@ -1,0 +1,17 @@
+.title {
+	margin-top: 1rem;
+	margin-left: 2rem;
+	font-size: 24px;
+	font-weight: 700;
+	font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande',
+		'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.react-multi-carousel-track li {
+	width: 250px !important;
+}
+
+.carousel-container {
+	overflow: hidden;
+	height: 440px;
+}

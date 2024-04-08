@@ -7,7 +7,6 @@ import UpcomingMovieSlide from './components/UpcomingMovieSlide/UpcomingMovieSli
 const Homepage = () => {
 	return (
 		<div>
-			Home page
 			<Banner />
 			<PopularMovieSlide />
 			<TopRatedMovieSlide />

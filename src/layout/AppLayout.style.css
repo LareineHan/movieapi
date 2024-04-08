@@ -74,7 +74,7 @@ nav .container-fluid {
 	border-color: #e50914;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 991px) {
 	.main-nav-bar {
 		margin-bottom: 10px;
 	}
@@ -85,6 +85,7 @@ nav .container-fluid {
 	.navbar-toggler-icon {
 		filter: invert(8%) sepia(85%) saturate(5689%) hue-rotate(348deg)
 			brightness(137%) contrast(113%);
+		z-index: 30;
 		background-image: url('../images/menu-burger-vertical-svgrepo-com.svg');
 	}
 
@@ -94,9 +95,10 @@ nav .container-fluid {
 		border-radius: 0;
 		flex-direction: column;
 		align-items: flex-end;
-		padding: 2rem 0rem 1rem 1rem;
-		z-index: 2;
+		padding: 0rem 0rem 1rem 1rem;
+		z-index: 20;
 	}
+
 	.nav-menu {
 		display: flex;
 		flex-direction: column;
@@ -115,7 +117,7 @@ nav .container-fluid {
 		height: inherit;
 	}
 	.navbar-collapse > .user {
-		margin: 1rem 0 1rem 0;
-		padding-right: 1rem;
+		margin: 1rem 1rem 1rem 0;
+		padding: 0;
 	}
 }

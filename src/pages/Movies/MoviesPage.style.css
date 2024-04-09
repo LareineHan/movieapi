@@ -1,0 +1,90 @@
+.movie-row-container {
+	margin: 0 !important;
+}
+.movie-cards-container-row {
+	padding-top: 2rem;
+	margin: 0 !important;
+}
+/* ---------------------pagination-------------------*/
+.pagination {
+	display: flex;
+	justify-content: flex-start;
+	margin-top: 35px;
+	background-color: none;
+	--bs-pagination-bg: transparent;
+	--bs-pagination-color: #fff;
+	--bs-pagination-padding-y: 0.6rem;
+	--bs-pagination-padding-x: 0.6rem;
+	--bs-pagination-border-radius: 0;
+	--bs-pagination-hover-color: #e50914;
+	--bs-pagination-hover-bg: white;
+	--bs-pagination-hover-font-weight: bold;
+	--bs-pagination-active-border-color: white;
+	--bs-pagination-active-bg: #e50914;
+}
+.page-item a:focus {
+	font-weight: bold;
+}
+/* ----------------------------------------------------*/
+/* ------(filters & all movies btn)left container------*/
+.all-movie-btn {
+	background-color: white;
+	color: #e50914;
+	border: solid 1px;
+	border-radius: 0;
+	font-size: 1rem;
+	font-weight: bold;
+	padding: 1rem;
+	margin: 0.5rem;
+}
+.all-movie-btn:hover {
+	background-color: #e50914;
+	color: white;
+	border: solid 1px white;
+	border-radius: 0;
+	padding: 1rem;
+	font-size: 1rem;
+	font-weight: bold;
+}
+.filters-container > .row {
+	display: flex;
+	justify-content: center;
+	margin: 0 1rem 0 1rem;
+}
+.filters-container {
+	padding-top: 2rem;
+}
+.search-results-of {
+	padding: 1rem;
+	margin: 0.5rem;
+	font-size: 1.2rem;
+	font-weight: bold;
+}
+.no-found-box {
+    display: flex;
+    margin: auto;
+    justify-content: center;
+}
+.no-search-results {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    margin: 1rem 1rem 1rem 1rem;
+    color: #e50914;
+    border: 1px solid #e50914;
+}
+/* ----------------------------------------------------*/
+
+.spinner-area {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.alert-area {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}

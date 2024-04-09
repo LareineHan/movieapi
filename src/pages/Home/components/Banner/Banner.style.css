@@ -26,6 +26,7 @@
 .banner-movie-info {
 	/* border: 4px solid #f83737; */
 	display: flex;
+	justify-content: center;
 	font-family: 'Public Sans', sans-serif;
 	padding: 5rem 1rem 1rem 1rem;
 	z-index: 2;
@@ -39,16 +40,21 @@
 .banner-movie-info > div {
 	margin: 0 1rem;
 }
+.banner-movie-info > .col-sm {
+	max-width: 500px;
+	padding-left: 0;
+}
 
 .banner-movie-info.row {
 	/* title overview box */
 	margin: 0;
 	align-items: center;
+	justify-content: flex-start;
 	position: relative;
 }
 
 .banner-movie-title {
-	font-family: MabryPro;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 700;
 	text-shadow: #0d0d0d 0.08em 0.08em 0;
@@ -57,6 +63,7 @@
 .banner-movie-genres {
 	display: flex;
 	justify-content: flex-start;
+	flex-wrap: wrap;
 }
 .banner-movie-genres .badge {
 	font-size: 14px;
@@ -75,9 +82,25 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	margin: auto;
+	align-self: center;
+	margin: 0 !important;
+	padding: 0 !important;
 	height: 100%;
 }
 .banner-extra .row {
 	margin: 10px;
+}
+
+.detail-trigger {
+	display: flex;
+	justify-content: center;
+}
+
+.detail-trigger > .btn {
+	width: 300px;
+	height: 50px;
+	border-radius: 0;
+	font-family: monospace;
+	font-weight: bold;
+	border: solid 2px #ffffff;
 }

@@ -1,5 +1,8 @@
 import React from 'react';
 import './Banner.style.css';
+import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlay } from '@fortawesome/free-solid-svg-icons';
 import { useMovieGenreQuery } from '../../../../hooks/useMovieGenre';
 import { usePopularMoviesQuery } from '../../../../hooks/usePopularMovies';
 import {
@@ -15,8 +18,12 @@ import {
 const Banner = () => {
 	const { data, isLoading, isError, error } = usePopularMoviesQuery();
 	console.log('ㅇㅇ', data);
+	const navigate = useNavigate();
 	const bannerMovie = data?.results[0];
 	const genreData = useMovieGenreQuery().data;
+	const getDetail = () => {
+		navigate(`/movies/${bannerMovie.id}`);
+	};
 	const genreName_array = () => {
 		let array = [];
 		if (data && genreData) {
@@ -76,6 +83,17 @@ const Banner = () => {
 						</Row>
 
 						<br />
+					</Col>
+
+					<Col sm className='banner-extra'>
+						<Row>
+							<div className='detail-trigger'>
+								<Button variant='danger' onClick={() => getDetail()}>
+									See Detail &nbsp;
+									<FontAwesomeIcon icon={faPlay} />
+								</Button>
+							</div>
+						</Row>
 					</Col>
 				</Row>
 			</Container>

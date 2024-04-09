@@ -1,0 +1,94 @@
+.footer-container {
+	max-width: 100%;
+	margin: auto;
+	padding: 4rem 3rem 4rem 3rem;
+	min-height: 30vh;
+	background-color: transparent;
+}
+.footer-container h1 {
+	text-align: center;
+}
+.footer1-menu {
+	margin-bottom: 1.5rem;
+	display: flex;
+}
+.footer1-menu .row {
+	margin-top: 5px;
+}
+
+.footer1-menu li {
+	font-size: 13px;
+	font-weight: 500;
+	margin: 0;
+	list-style: none;
+	cursor: pointer;
+	padding-bottom: 10px;
+}
+.footer1-menu ul {
+	margin: 2px;
+}
+
+.read-more svg {
+	margin-left: 5px;
+	font-size: 16px;
+	font-weight: lighter;
+	color: #3f3e3e;
+}
+.footer2-menu {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.footer2-menu .row {
+	justify-content: center;
+}
+.footer2-menu h6 {
+	font-family: 'Bebas_Kai', sans-serif;
+	text-align: center;
+}
+.footer1-menu p,
+.footer2-menu p {
+	font-size: 12px;
+}
+.footer2-menu > .social-icons {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1em 0 1em 0;
+	padding: 1rem;
+}
+.social-icons > svg {
+	margin: 18px;
+	font-size: 1.2rem;
+	cursor: pointer;
+}
+
+.footer2-menu img {
+	margin-top: 2em;
+	margin-bottom: 2em;
+	width: 170px;
+	cursor: pointer;
+}
+
+/* Ipad style */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+	.footer1-menu {
+		display: none;
+	}
+}
+@media only screen and (device-width: 430px) and (device-height: 932px) and (-webkit-device-pixel-ratio: 3) {
+	.footer1-menu {
+		display: none;
+	}
+}
+
+@media only screen and (min-device-width: 280px) and (max-device-width: 540px) {
+	.footer1-menu {
+		display: none;
+	}
+
+	.social-icons svg {
+		font-size: 1.7rem;
+		margin: 0.6em;
+	}
+}

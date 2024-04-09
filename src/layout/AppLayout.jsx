@@ -20,6 +20,7 @@ const AppLayout = () => {
 		navigate(`/movies?q=${keyword}`);
 		setKeyword('');
 	};
+
 	return (
 		<div className='app-layout'>
 			<Navbar expand='lg' className='main-nav-bar '>
@@ -35,7 +36,6 @@ const AppLayout = () => {
 							navbarScroll>
 							<Nav.Link href='/'>Home</Nav.Link>
 							<Nav.Link href='/movies'>Movies</Nav.Link>
-							{/* <Nav.Link href={`$/movies/:id`}>Movie Detail</Nav.Link> */}
 						</Nav>
 						<Form className='d-flex search-area' onSubmit={searchByKeyword}>
 							<Form.Control
@@ -48,7 +48,7 @@ const AppLayout = () => {
 									setKeyword(event.target.value);
 								}}
 							/>
-							<Button variant='danger' className='search-btn'>
+							<Button variant='danger' className='search-btn' type='submit'>
 								Search
 							</Button>
 						</Form>

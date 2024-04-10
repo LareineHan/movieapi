@@ -8,7 +8,11 @@ import ReactPaginate from 'react-paginate';
 import FilteredMovies from './components/FilteredMovies';
 import GenreFilter from './components/Filters/GenreFilter/GenreFilter';
 import { useSelector, useDispatch } from 'react-redux';
-import { toggleFilter } from '../../redux/reducers/filterGenreSlice';
+import {
+	toggleFilter,
+	addMovieGenreName,
+	addMovieGenreId,
+} from '../../redux/reducers/filterGenreSlice';
 
 const MoviePage = () => {
 	// eslint-disable-next-line
@@ -84,12 +88,17 @@ const MoviePage = () => {
 				<Col lg={4} xs={12}>
 					<div className='filters-container'>
 						{isFilter ? (
-							<Row>
-								<div className='filter-results-of'>Genre: {genreName}</div>
+							<Row className='filter-genre-name'>
+								<div className='filter-results-of'>
+									Genre: {genreName} <GenreFilter />
+								</div>
 							</Row>
 						) : (
-							<Row>
-								<div className='filter-results-of'>All Movies</div>
+							<Row className='filter-genre-name'>
+								<div className='filter-results-of'>
+									Genre Filter
+									<GenreFilter />
+								</div>
 							</Row>
 						)}
 						{keyword ? (
@@ -99,9 +108,9 @@ const MoviePage = () => {
 								</Row>
 							</>
 						) : null}
-						<Row>
+						{/* <Row>
 							<GenreFilter />
-						</Row>
+						</Row> */}
 						<Row>
 							{keyword || isFilter ? (
 								<>

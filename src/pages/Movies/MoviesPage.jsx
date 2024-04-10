@@ -85,11 +85,11 @@ const MoviePage = () => {
 					<div className='filters-container'>
 						{isFilter ? (
 							<Row>
-								<div className='filter-results-of'>Genre ID: {genreName}</div>
+								<div className='filter-results-of'>Genre: {genreName}</div>
 							</Row>
 						) : (
 							<Row>
-								<div className='filter-results-of'>Genre ID: All Movies</div>
+								<div className='filter-results-of'>All Movies</div>
 							</Row>
 						)}
 						{keyword ? (

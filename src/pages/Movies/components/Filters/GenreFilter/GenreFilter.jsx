@@ -22,7 +22,7 @@ import { toggleFilter } from '../../../../../redux/reducers/filterGenreSlice';
 const GenreFilter = () => {
 	const { data } = useMovieGenreQuery();
 	const dispatch = useDispatch();
-	const [defaultState, setDefaultState] = useState('>');
+	const [defaultState, setDefaultState] = useState('Filter by Genre');
 	const isFilter = useSelector((state) => state.genre.isFilter);
 	console.log(data);
 	const handleChange = async (event) => {

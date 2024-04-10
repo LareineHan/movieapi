@@ -8,13 +8,14 @@
 /* ---------------------pagination-------------------*/
 .pagination {
 	display: flex;
-	justify-content: flex-start;
+	flex-wrap: wrap;
+	justify-content: center;
 	margin-top: 35px;
 	background-color: none;
 	--bs-pagination-bg: transparent;
 	--bs-pagination-color: #fff;
-	--bs-pagination-padding-y: 0.6rem;
-	--bs-pagination-padding-x: 0.6rem;
+	--bs-pagination-padding-y: 0.8rem;
+	--bs-pagination-padding-x: 1.3rem;
 	--bs-pagination-border-radius: 0;
 	--bs-pagination-hover-color: #e50914;
 	--bs-pagination-hover-bg: white;
@@ -24,6 +25,7 @@
 }
 .page-item a:focus {
 	font-weight: bold;
+	box-shadow: none !important;
 }
 /* ----------------------------------------------------*/
 /* ------(filters & all movies btn)left container------*/
@@ -61,18 +63,18 @@
 	font-weight: bold;
 }
 .no-found-box {
-    display: flex;
-    margin: auto;
-    justify-content: center;
+	display: flex;
+	margin: auto;
+	justify-content: center;
 }
 .no-search-results {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    margin: 1rem 1rem 1rem 1rem;
-    color: #e50914;
-    border: 1px solid #e50914;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 2rem;
+	margin: 1rem 1rem 1rem 1rem;
+	color: #e50914;
+	border: 1px solid #e50914;
 }
 /* ----------------------------------------------------*/
 

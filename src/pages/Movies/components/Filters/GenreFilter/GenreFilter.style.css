@@ -1,0 +1,17 @@
+.filter-select:hover {
+	cursor: pointer;
+}
+.filter-select {
+	padding: 1rem;
+	margin: 0.5rem;
+}
+.form-select {
+	border-radius: 0 !important;
+	border: 1px solid #e50914 !important;
+	background-color: #000 !important;
+	color: #fff !important;
+}
+.form-select:focus {
+	box-shadow: none !important;
+	outline: none !important;
+}

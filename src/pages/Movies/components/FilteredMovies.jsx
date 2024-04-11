@@ -65,11 +65,12 @@ const FilteredMovies = ({ filterCategory, filterValue, page, keyword }) => {
 	return (
 		<>
 			{filteredData?.results?.map((movie, index) => (
-				<Col key={index} lg={4} xs={12}>
+				<Col key={index} lg={4} xs={6}>
 					<MovieCard movie={movie} />
 				</Col>
 			))}
 			<ReactPaginate
+				lg={12}
 				nextLabel='>'
 				onPageChange={handlePageClick}
 				pageRangeDisplayed={3}

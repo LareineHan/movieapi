@@ -85,7 +85,7 @@ const MoviePage = () => {
 	return (
 		<Container>
 			<Row className='movie-row-container'>
-				<Col lg={4} xs={12}>
+				<Col lg={3} xs={12}>
 					<div className='filters-container'>
 						{isFilter ? (
 							<Row className='filter-genre-name'>
@@ -108,9 +108,7 @@ const MoviePage = () => {
 								</Row>
 							</>
 						) : null}
-						{/* <Row>
-							<GenreFilter />
-						</Row> */}
+
 						<Row>
 							{keyword || isFilter ? (
 								<>
@@ -125,45 +123,53 @@ const MoviePage = () => {
 					</div>
 				</Col>
 
-				<Col lg={8} xs={12}>
-					<Row className='movie-cards-container-row'>
-						{isFilter ? (
-							<FilteredMovies
-								filterCategory={filterCategory}
-								filterValue={filterValue}
-								// keyword={keyword}
-							/>
-						) : (
-							data?.results.map((movie, index) => (
-								<Col key={index} lg={4} xs={12}>
-									<MovieCard movie={movie} />
-								</Col>
-							))
-						)}
-					</Row>
-					{!isFilter && (
-						<ReactPaginate
-							lg={12}
-							nextLabel='>'
-							onPageChange={handlePageClick}
-							pageRangeDisplayed={3}
-							marginPagesDisplayed={3}
-							pageCount={data?.total_pages}
-							previousLabel='<'
-							pageClassName='page-item'
-							pageLinkClassName='page-link'
-							previousClassName='page-item'
-							previousLinkClassName='page-link'
-							nextClassName='page-item'
-							nextLinkClassName='page-link'
-							breakLabel='...'
-							breakClassName='page-item'
-							breakLinkClassName='page-link'
-							containerClassName='pagination'
-							activeClassName='active'
-							renderOnZeroPageCount={null}
-							forcePage={page - 1}
-						/>
+				<Col lg={9} xs={12} className='movies-grid'>
+					{data?.results.length === 0 ? (
+						<Container className='no-found-box'>
+							<h1 className='no-search-results'>no search result has found</h1>
+						</Container>
+					) : (
+						<>
+							<Row className='movie-cards-container-row'>
+								{isFilter ? (
+									<FilteredMovies
+										filterCategory={filterCategory}
+										filterValue={filterValue}
+										// keyword={keyword}
+									/>
+								) : (
+									data?.results.map((movie, index) => (
+										<Col key={index} lg={4} xs={6}>
+											<MovieCard movie={movie} />
+										</Col>
+									))
+								)}
+							</Row>
+							{!isFilter && (
+								<ReactPaginate
+									lg={12}
+									nextLabel='>'
+									onPageChange={handlePageClick}
+									pageRangeDisplayed={3}
+									marginPagesDisplayed={3}
+									pageCount={data?.total_pages}
+									previousLabel='<'
+									pageClassName='page-item'
+									pageLinkClassName='page-link'
+									previousClassName='page-item'
+									previousLinkClassName='page-link'
+									nextClassName='page-item'
+									nextLinkClassName='page-link'
+									breakLabel='...'
+									breakClassName='page-item'
+									breakLinkClassName='page-link'
+									containerClassName='pagination'
+									activeClassName='active'
+									renderOnZeroPageCount={null}
+									forcePage={page - 1}
+								/>
+							)}
+						</>
 					)}
 				</Col>
 			</Row>

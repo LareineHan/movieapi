@@ -14,16 +14,33 @@ import {
 	Spinner,
 	Button,
 } from 'react-bootstrap';
+import MovieCertification from '../../../../common/MovieCertification/MovieCertification';
+import { fetchMovieDetail } from '../../../../redux/reducers/movieDetailSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';
 
 const Banner = () => {
 	const { data, isLoading, isError, error } = usePopularMoviesQuery();
 	console.log('ㅇㅇ', data);
 	const navigate = useNavigate();
+	const dispatch = useDispatch();
 	const bannerMovie = data?.results[0];
 	const genreData = useMovieGenreQuery().data;
+
+	const detail = useSelector((state) => state.movieDetail);
+	const movieInfo = detail?.movieDetail;
+	const nationality = movieInfo?.production_countries[0]?.iso_3166_1;
+
 	const getDetail = () => {
 		navigate(`/movies/${bannerMovie.id}`);
 	};
+
+	useEffect(() => {
+		if (bannerMovie) {
+			dispatch(fetchMovieDetail(bannerMovie?.id));
+		}
+	}, [bannerMovie, dispatch]);
+
 	const genreName_array = () => {
 		let array = [];
 		if (data && genreData) {
@@ -67,6 +84,10 @@ const Banner = () => {
 					<Col sm>
 						<h1 className='banner-movie-title'>{bannerMovie?.title}</h1>
 						<hr />
+						<MovieCertification
+							movieId={bannerMovie?.id}
+							nationality={nationality}
+						/>
 						<Row sm>
 							<p className='banner-movie-overview'>{bannerMovie?.overview}</p>
 						</Row>

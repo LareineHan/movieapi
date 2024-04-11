@@ -1,0 +1,15 @@
+.movie-detail-page {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding: 1rem;
+	margin: 0;
+	background-color: #0d0d0d;
+	color: white;
+	font-family: 'MabryPro';
+	font-optical-sizing: auto;
+	font-weight: 700;
+	text-shadow: #0d0d0d 0.08em 0.08em 0;
+	font-style: normal;
+}

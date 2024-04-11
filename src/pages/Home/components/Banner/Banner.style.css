@@ -54,7 +54,7 @@
 }
 
 .banner-movie-title {
-	font-family: Verdana, Geneva, Tahoma, sans-serif;
+	font-family: MabryPro;
 	font-optical-sizing: auto;
 	font-weight: 700;
 	text-shadow: #0d0d0d 0.08em 0.08em 0;
@@ -102,5 +102,12 @@
 	border-radius: 0;
 	font-family: monospace;
 	font-weight: bold;
-	border: solid 2px #ffffff;
+	background-color: #e50914;
+	color: antiquewhite;
+	border: solid 2px antiquewhite;
+}
+.detail-trigger > .btn:hover {
+	color: #e50914;
+	background-color: antiquewhite;
+	border: solid 2px #e50914;
 }

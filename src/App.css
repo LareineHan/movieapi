@@ -1,8 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Symbols+2&display=swap');
+
 .App {
 	margin-bottom: 5rem;
+	font-family: Noto Sans Symbols 2, sans-serif;
 }
 
 body {
 	background-color: black !important;
 	color: white !important;
+	background-image: linear-gradient(
+		60deg,
+		rgba(18, 18, 49, 0.7) 10%,
+		transparent
+	);
 }

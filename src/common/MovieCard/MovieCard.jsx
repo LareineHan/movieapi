@@ -1,14 +1,20 @@
 import './MovieCard.style.css';
 import React from 'react';
 import Badge from 'react-bootstrap/Badge';
+import MovieCertification from '../MovieCertification/MovieCertification';
 import { useNavigate } from 'react-router-dom';
 import { useMovieGenreQuery } from '../../hooks/useMovieGenre';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCheckToSlot } from '@fortawesome/free-solid-svg-icons';
+import { faBullseye } from '@fortawesome/free-solid-svg-icons';
 import { faFire } from '@fortawesome/free-solid-svg-icons';
 import { faCirclePlay } from '@fortawesome/free-solid-svg-icons';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { faThumbsUp } from '@fortawesome/free-regular-svg-icons';
+import { rating } from '../../constants/rating';
+import { formatNumber } from '../../constants/formatNumber';
+import { formatDuration } from '../../constants/formatDuration';
+import default_poster_path from '../../images/default_poster_path.png';
+
 const MovieCard = ({ movie, index }) => {
 	const genreData = useMovieGenreQuery().data;
 	const navigate = useNavigate();
@@ -20,61 +26,58 @@ const MovieCard = ({ movie, index }) => {
 		});
 		return genreNameList;
 	};
-	////////////// my Original code /////////
-	// const genreName_array = () => {
-	//     let array = [];
-	//     if (movie && genreData) {
-	//         for (let i = 0; i < movie.genre_ids.length; i++) {
-	//             for (let j = 0; j < genreData.length; j++) {
-	//                 if (movie.genre_ids[i] === genreData[j].id) {
-	//                     array.push(genreData[j].name);
-	//                 }
-	//             }
-	//         }
-	//         return array;
-	//     }
-	// }
-	// const genreNames = genreName_array();
+	const vote_average = formatNumber(movie?.vote_average);
+	const vote_count = formatNumber(movie?.vote_count);
+	const vote_stars = rating(formatNumber(vote_average));
+	const popularity = formatNumber(movie?.popularity);
+	const poster_url =
+		movie?.poster_path != null
+			? `https://image.tmdb.org/t/p/w600_and_h900_bestv2${movie?.poster_path}`
+			: default_poster_path;
 
 	const getMovieDetails = () => {
-		console.log(movie.id, 'is clicked and navigated to movie detail');
-		navigate(`/movies/${movie.id}`);
+		navigate(`/movies/${movie?.id}`);
 	};
+
 	return (
 		// eslint-disable-next-line
 		<div
 			className='movie-card'
 			onClick={getMovieDetails}
 			style={{
-				backgroundImage:
-					'url(' +
-					`https://image.tmdb.org/t/p/w600_and_h900_bestv2${movie.poster_path}` +
-					')',
+				backgroundImage: 'url(' + `${poster_url}` + ')',
 			}}>
 			<div className='overlay'>
-				<h1 className='card-movie-title'>{movie.title}</h1>
+				<h1 className='card-movie-title'>{movie?.title}</h1>
 				<hr className='title-hr' />
 
-				{showGenre(movie.genre_ids)?.map((genre, index) => (
+				{showGenre(movie?.genre_ids)?.map((genre, index) => (
 					<Badge bg='danger' key={index} className='genre-badge'>
 						{genre}
 					</Badge>
 				))}
-				{/* ////////original code//////// */}
-				{/* {genreNames?.map((id) => {
-                    return <Badge bg="danger" key={id} className='genre-badge'>{id}</Badge>
-                })} */}
 
-				<div className='detail'>
+				<div className='movie-card-detail'>
+					{/* <div>
+						<MovieCertification movieId={movie.id} nationality={'US'} />
+					</div> */}
+					{/* is there any better way to render this? */}
+
 					<div className='vote'>
-						{' '}
-						<FontAwesomeIcon icon={faCheckToSlot} /> {movie.vote_average}
+						<div className='thumbs-up-votes'>
+							<FontAwesomeIcon icon={faThumbsUp} />
+							&nbsp;{vote_count} votes
+						</div>
+						<div className='stars'>{vote_stars}&nbsp;stars</div>
+						<div className='bullseye'>
+							<FontAwesomeIcon icon={faBullseye} />
+							&nbsp;{vote_average}&nbsp;scored
+						</div>
+						<div className='popular'>
+							<FontAwesomeIcon icon={faFire} />
+							&nbsp;Popularity: {popularity}
+						</div>
 					</div>
-					<div className='popular'>
-						{' '}
-						<FontAwesomeIcon icon={faFire} /> {movie.popularity}
-					</div>
-					<div className='adult'>{movie.adult ? 'NC-17' : 'PG'}</div>
 				</div>
 				<div className='user-reactions'>
 					<div className='play-btn'>

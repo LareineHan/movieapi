@@ -6,7 +6,7 @@ import MovieDetailPage from './pages/MovieDetail/MovieDetailPage';
 import MoviesPage from './pages/Movies/MoviesPage';
 import HomePage from './pages/Home/HomePage';
 import NotFoundPage from './pages/NotFound/NotFoundPage';
-
+import './font.css';
 //homepage => /
 //all movies page + search => /movies || /movie?search=q
 //movie details page => /movies/:id

@@ -1,0 +1,19 @@
+@font-face {
+	font-family: 'Bebas_Kai';
+	src: local('bebas_kai'),
+		url('../src/fonts/bebas_kai/BebasKai.woff') format('woff'),
+		url('../src/fonts/bebas_kai/BebasKai.woff2') format('woff2');
+}
+
+@font-face {
+	font-family: 'MabryPro';
+	src: local('mabry_pro'),
+		url('../src/fonts/mabry_pro/MabryPro-Black.woff') format('woff'),
+		url('../src/fonts/mabry_pro/MabryPro-Black.woff2') format('woff2'),
+		url('../src/fonts/mabry_pro/MabryPro-BlackItalic.woff') format('woff'),
+		url('../src/fonts/mabry_pro/MabryPro-BlackItalic.woff2') format('woff2'),
+		url('../src/fonts/mabry_pro/MabryPro-Regular.woff') format('woff'),
+		url('../src/fonts/mabry_pro/MabryPro-Regular.woff2') format('woff2'),
+		url('../src/fonts/mabry_pro/MabryPro-Italic.woff') format('woff'),
+		url('../src/fonts/mabry_pro/MabryPro-Italic.woff2') format('woff2');
+}

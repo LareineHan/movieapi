@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Mega:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+.detail-full-div {
+	max-height: 100%;
+	display: flex;
+}
+
+.detail-backdrop {
+	/* height:80vh; */
+	background: center/cover no-repeat;
+	margin-bottom: 2rem;
+	overflow: hidden;
+	position: relative;
+}
+.detail-backdrop:before {
+	content: '';
+	background: linear-gradient(to right, black, transparent);
+	position: absolute;
+	top: 0;
+	left: 0;
+	bottom: 0;
+	height: 100%;
+	width: 100%;
+}
+
+.detail-movie-info {
+	/* border: 4px solid #f83737; */
+	display: flex;
+	font-family: 'Public Sans', sans-serif;
+	padding: 2rem;
+	z-index: 2;
+	min-width: 50%;
+}
+
+.detail-movie-info > * {
+	z-index: 1;
+	/* flex-basis: auto; */
+}
+.detail-movie-info > div {
+	margin: 0 1rem;
+}
+
+.detail-movie-info.row {
+	/* title overview box */
+	margin: 0;
+	align-items: center;
+	position: relative;
+}
+
+.detail-movie-title {
+	font-family: MabryPro;
+	font-optical-sizing: auto;
+	font-weight: 700;
+	text-shadow: #0d0d0d 0.08em 0.08em 0;
+	font-style: normal;
+}
+.detail-movie-genres .badge {
+	font-size: 0.8rem;
+	padding: 0.5em;
+	border-radius: 0;
+	font-family: monospace;
+	border: solid 1px #ffffff;
+	box-shadow: calc(0.1em + 1px) calc(0.1em + 1px) 0 #00000096;
+	background: linear-gradient(to right, #ae1d1d, transparent);
+}
+
+.detail-full-div > div > div > div:nth-child(1) > hr {
+	width: 70%;
+}
+.detail-movie-tagline {
+	font-family: MabryPro;
+	font-weight: 700;
+	font-size: 2rem;
+	font-style: italic;
+	color: antiquewhite;
+	text-shadow: #7a0000 0.08em 0.08em 0;
+}
+
+.detail-extra-items {
+	display: flex;
+	flex-direction: column;
+	margin: 0;
+	width: 70%;
+}
+.detail-extra {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: auto;
+	min-width: 50%;
+	height: 70%;
+	border: solid 1px #ffffff;
+	padding: 1.5rem;
+	border-radius: 40px;
+	background: radial-gradient(
+		circle,
+		rgba(255, 255, 255, 0.1) 0%,
+		rgba(0, 0, 0, 0.8) 100%
+	);
+	box-shadow: calc(0.1em + 1px) calc(0.1em + 1px) 0 #00000096;
+}
+.detail-extra.col-sm {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.detail-movie-overview {
+	font-family: MabryPro;
+}
+.detail-movie-extra.rating {
+	display: flex;
+	align-items: center;
+	margin: 0 !important;
+}
+
+.detail-movie-runtime {
+	font-family: Bebas_Kai;
+	font-size: medium;
+	font-size: 1.5rem;
+}
+
+.detail-movie-extra {
+	font-family: Bebas_Kai;
+	font-size: 18px !important;
+	color: rgb(255, 233, 207);
+}
+
+@media screen and (max-width: 768px) {
+	.detail-extra {
+		min-width: 100% !important;
+		margin-top: 2rem !important;
+		padding: 2.5rem !important;
+	}
+	.detail-movie-info > div {
+		margin: 0rem !important;
+	}
+	.detail-movie-info.col-sm {
+		margin: 1.5rem !important;
+	}
+	div.detail-extra.col-sm {
+		margin-top: 2rem !important;
+	}
+	.detail-movie-title {
+		padding-top: 2rem;
+		font-size: 2.4rem;
+	}
+	.detail-extra-items {
+		width: 100%;
+	}
+	.detail-movie-overview {
+		font-size: 1rem;
+		padding: 0.5rem;
+	}
+	.detail-movie-tagline {
+		text-align: center;
+		font-size: 2rem;
+	}
+}

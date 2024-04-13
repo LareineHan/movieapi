@@ -27,7 +27,7 @@
 	/* border: 4px solid #f83737; */
 	display: flex;
 	justify-content: center;
-	font-family: 'Public Sans', sans-serif;
+	font-family: Public Sans;
 	padding: 5rem 1rem 1rem 1rem;
 	z-index: 2;
 	min-width: 50%;
@@ -49,7 +49,7 @@
 	/* title overview box */
 	margin: 0;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	position: relative;
 }
 
@@ -68,6 +68,7 @@
 .banner-movie-genres .badge {
 	font-size: 14px;
 	padding: 0.5em;
+	font-family: monospace;
 	border-radius: 0;
 	border: solid 1px #ffffff;
 	box-shadow: calc(0.1em + 1px) calc(0.1em + 1px) 0 #00000096;
@@ -94,6 +95,7 @@
 .detail-trigger {
 	display: flex;
 	justify-content: center;
+	color: #f1c100;
 }
 
 .detail-trigger > .btn {
@@ -102,12 +104,37 @@
 	border-radius: 0;
 	font-family: monospace;
 	font-weight: bold;
-	background-color: #e50914;
-	color: antiquewhite;
-	border: solid 2px antiquewhite;
+	background-color: #000; /* Black */
+	color: #fff; /* White text for contrast */
+	border: solid 2px #ffffff;
+	box-shadow: calc(0.1em + 1px) calc(0.1em + 1px) 0 #000000;
+	z-index: 2;
 }
 .detail-trigger > .btn:hover {
-	color: #e50914;
-	background-color: antiquewhite;
-	border: solid 2px #e50914;
+	background: linear-gradient(to right, #000000, rgb(132, 0, 0));
+	z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+	.banner-movie-title {
+		font-size: 2.5rem;
+	}
+	.banner-full-div > div > div > div:nth-child(1) > div:nth-child(4) {
+		padding-top: 1rem;
+	}
+	.banner-movie-genres {
+		justify-content: center;
+	}
+	.detail-trigger > .btn,
+	.preview-trigger > .modal-trigger > .btn {
+		width: 250px;
+		height: 55px;
+		font-size: 1rem;
+		font-weight: 600;
+		font-family: MabryPro;
+	}
+	.detail-trigger > .btn {
+		border-color: rgb(204, 204, 204);
+		background-color: rgb(16, 16, 16);
+	}
 }

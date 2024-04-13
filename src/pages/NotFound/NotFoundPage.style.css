@@ -1,0 +1,21 @@
+@keyframes glow {
+	from {
+		text-shadow: 0 0 20px #ff0909;
+	}
+	to {
+		text-shadow: 0 0 30px #c3bd12, 0 0 10px #dfdfdf;
+	}
+}
+.not-found {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+}
+.not-found h1 {
+	font-family: MabryPro;
+	font-size: 3rem;
+	text-transform: uppercase;
+	animation: glow 2s ease-in-out infinite alternate;
+	text-align: center;
+}

@@ -1,0 +1,45 @@
+.cast-title {
+	margin-top: 1rem;
+	margin-left: 2rem;
+	font-size: 24px;
+	font-weight: 700;
+	font-family: MabryPro;
+}
+.related-people-showmore button {
+	width: 200px;
+	height: 40px;
+	border-radius: 0;
+	font-family: MabryPro;
+	border: solid 2px #000000;
+	box-shadow: calc(0.1em + 1px) calc(0.1em + 1px) 0 #00000096;
+	background: linear-gradient(to right, #f1c100, rgb(255, 229, 57));
+}
+
+.related-people-showmore button:hover {
+	background: linear-gradient(to right, #fffdf7, rgb(255, 221, 0));
+	border-color: rgb(43, 43, 43) !important;
+}
+.related-people-showmore {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 1rem 0rem 2rem 0rem;
+}
+
+.related-people-list {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 10px;
+}
+
+@media screen and (max-width: 991px) {
+	.cast-title {
+		padding-top: 2rem;
+	}
+}
+
+@media (max-width: 768px) {
+	.related-people-list {
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	}
+}

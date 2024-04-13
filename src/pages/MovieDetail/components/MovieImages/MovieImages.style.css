@@ -1,0 +1,100 @@
+.title-choices {
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+}
+.title-choices h3 {
+	cursor: pointer;
+	color: grey;
+}
+.title-choices h3:hover {
+	text-decoration: underline goldenrod;
+}
+.title-choices > .active {
+	color: white;
+}
+
+.media-title {
+	margin-top: 1rem;
+	margin-left: 2rem;
+	font-size: 24px;
+	font-weight: 700;
+	font-family: MabryPro;
+}
+
+.media-list {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+	grid-gap: 10px;
+}
+
+.media-posters-container {
+	width: 130px;
+	height: 200px;
+	border-radius: 0;
+	overflow: hidden;
+}
+.media-backdrops-container {
+	width: 250px;
+	height: 170px;
+	border-radius: 0;
+	overflow: hidden;
+}
+.media-logos-container {
+	width: 110px;
+	height: 110px;
+	padding: 0.3rem;
+	border-radius: 0px;
+	overflow: hidden;
+}
+.media-image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover; /* Ensure the image covers the entire container */
+	cursor: pointer;
+}
+.media-image:hover {
+	filter: brightness(1.4);
+	box-shadow: 0 0 10px 5px #000000;
+	border: 1px solid goldenrod;
+}
+
+.media-showmore button {
+	width: 200px;
+	height: 40px;
+	border-radius: 0;
+	font-family: MabryPro;
+	border: solid 2px #000000;
+	box-shadow: calc(0.1em + 1px) calc(0.1em + 1px) 0 #00000096;
+	background: linear-gradient(to right, #f1c100, rgb(255, 229, 57));
+}
+
+.media-showmore button:hover {
+	background: linear-gradient(to right, #fffdf7, rgb(255, 221, 0));
+	border-color: rgb(43, 43, 43) !important;
+}
+.media-showmore {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-top: 0.5rem;
+	margin: 1.2rem 0rem 2rem 0rem;
+}
+
+@media (max-width: 768px) {
+	.media-list {
+		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	}
+	.title-choices {
+		justify-content: center;
+	}
+	.title-choices h3 {
+		font-size: 22px;
+	}
+	.media-title {
+		margin: 0 0.8rem;
+		padding-top: 2rem;
+	}
+}

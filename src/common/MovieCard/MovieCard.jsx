@@ -48,34 +48,37 @@ const MovieCard = ({ movie, index }) => {
 				backgroundImage: 'url(' + `${poster_url}` + ')',
 			}}>
 			<div className='overlay'>
-				<h1 className='card-movie-title'>{movie?.title}</h1>
-				<hr className='title-hr' />
+				<div className='movie-card-content'>
+					<h1 className='card-movie-title'>{movie?.title}</h1>
+					<hr className='title-hr' />
+					<div className='card-genre-badges'>
+						{showGenre(movie?.genre_ids)?.map((genre, index) => (
+							<Badge bg='danger' key={index} className='genre-badge'>
+								{genre}
+							</Badge>
+						))}
+					</div>
 
-				{showGenre(movie?.genre_ids)?.map((genre, index) => (
-					<Badge bg='danger' key={index} className='genre-badge'>
-						{genre}
-					</Badge>
-				))}
-
-				<div className='movie-card-detail'>
-					{/* <div>
+					<div className='movie-card-detail'>
+						{/* <div>
 						<MovieCertification movieId={movie.id} nationality={'US'} />
 					</div> */}
-					{/* is there any better way to render this? */}
+						{/* is there any better way to render this? */}
 
-					<div className='vote'>
-						<div className='thumbs-up-votes'>
-							<FontAwesomeIcon icon={faThumbsUp} />
-							&nbsp;{vote_count} votes
-						</div>
-						<div className='stars'>{vote_stars}&nbsp;stars</div>
-						<div className='bullseye'>
-							<FontAwesomeIcon icon={faBullseye} />
-							&nbsp;{vote_average}&nbsp;scored
-						</div>
-						<div className='popular'>
-							<FontAwesomeIcon icon={faFire} />
-							&nbsp;Popularity: {popularity}
+						<div className='vote'>
+							<div className='thumbs-up-votes'>
+								<FontAwesomeIcon icon={faThumbsUp} />
+								&nbsp;{vote_count} votes
+							</div>
+							<div className='stars'>{vote_stars}&nbsp;stars</div>
+							<div className='bullseye'>
+								<FontAwesomeIcon icon={faBullseye} />
+								&nbsp;{vote_average}&nbsp;scored
+							</div>
+							<div className='popular'>
+								<FontAwesomeIcon icon={faFire} />
+								&nbsp;Popularity: {popularity}
+							</div>
 						</div>
 					</div>
 				</div>

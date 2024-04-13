@@ -10,6 +10,7 @@ const MovieSlider = ({ title, movies }) => {
 	return (
 		<div>
 			<h3 className='title'>{title}</h3>
+			<hr />
 			<Carousel
 				infinite={true}
 				centerMode

@@ -4,44 +4,60 @@
 	background-size: cover;
 	background-position: center;
 	cursor: pointer;
-	transition: 0.5s;
+	/* transition: 0.5s; */
 	margin: 0.2rem;
 }
+
 .overlay {
 	width: 100%;
 	height: 100%;
-	background: rgba(43, 41, 41, 0.9);
+	background: rgba(30, 28, 28, 0.9);
 	opacity: 0;
-	transition: all 1s;
+	transition: all 0.5s;
 	color: white;
 	font-weight: bold;
-	overflow-wrap: break-word;
-	padding: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-around;
 }
 .overlay:hover {
+	transition: all 0.5s;
 	opacity: 1;
 }
 .movie-card:hover {
-	transform: scale(1.2) translateZ(15px);
+	transform: scale(1.1) translateZ(17px);
+	/* transition: all 0.5s; */
 	border: 2px solid #e50914;
-	z-index: 2;
+	z-index: 1;
+	box-shadow: 10px 15px 2px #000000;
+}
+.movie-card-content {
+	padding: 0 1rem 1rem 1rem;
 }
 .card-movie-title {
 	font-family: MabryPro;
 	font-size: 1.4rem;
 	font-weight: 700;
+	padding-top: 1rem;
 }
 .title-hr {
 	width: 200px;
 	height: 5px;
-	color: white;
-	margin: 0.5rem 0;
+	color: #e50914;
+	padding-bottom: 1rem;
+	opacity: 1;
+	margin: auto;
+}
+.card-genre-badges {
+	display: flex;
+	flex-wrap: wrap;
 }
 .genre-badge {
 	margin: 0.2rem;
+	font-family: monospace;
 	font-size: 10px;
 	font-weight: 400;
-	padding: 0.2rem;
+	padding: 0.25rem;
 	border-radius: 0;
 	border: solid 1px #ffffff;
 	box-shadow: calc(0.1em + 1px) calc(0.1em + 1px) 0 #00000096;
@@ -51,15 +67,17 @@
 .movie-card-detail {
 	display: flex;
 	flex-direction: column;
+	justify-content: space-between;
 	font-size: 13px;
 	font-style: italic;
+	padding-top: 1rem;
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
 		Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 .movie-card-detail .vote {
 	color: white;
-	padding: 0.7rem 0rem 0.7rem 0rem;
+	padding: 0rem;
 }
 .movie-card-detail .vote div {
 	padding: 0.1rem;
@@ -87,12 +105,9 @@
 		rgba(0, 0, 0, 0.7) 20%,
 		transparent
 	);
-	position: absolute;
-	left: 0;
-	/* height: 65px; */
-	width: inherit;
-	bottom: 0;
-	padding: 1.3rem 0 1.5rem 0;
+	height: 0;
+	width: 100%;
+	margin-bottom: 2.2rem;
 }
 .user-reactions div {
 	margin: auto;

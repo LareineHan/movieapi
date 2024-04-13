@@ -10,25 +10,37 @@ import Footer from './components/Footer/Footer';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { Outlet, useNavigate } from 'react-router-dom';
+import ScrollToTop from './components/ScrollToTop';
+import BackToTopButton from '../common/BackToTopBtn/BackToTopBtn';
 
 const AppLayout = () => {
 	const [keyword, setKeyword] = useState('');
+	const [navbarExpanded, setNavbarExpanded] = useState(false);
 	const navigate = useNavigate();
 	const searchByKeyword = (event) => {
 		event.preventDefault();
 		// url needs to be changed!
 		navigate(`/movies?q=${keyword}`);
 		setKeyword('');
+		setNavbarExpanded(false);
 	};
 
 	return (
 		<div className='app-layout'>
-			<Navbar expand='lg' className='main-nav-bar '>
+			<ScrollToTop />
+			<Navbar
+				expand='lg'
+				className='main-nav-bar '
+				expanded={navbarExpanded}
+				collapseOnSelect>
 				<Container fluid>
 					<Navbar.Brand href='/'>
 						<img className='main-logo' src={logo} width={'120px'} alt='logo' />
 					</Navbar.Brand>
-					<Navbar.Toggle aria-controls='navbarScroll' />
+					<Navbar.Toggle
+						aria-controls='navbarScroll'
+						onClick={() => setNavbarExpanded(!navbarExpanded)}
+					/>
 					<Navbar.Collapse id='navbarScroll'>
 						<Nav
 							className='me-auto my-2 my-lg-0 nav-menu'
@@ -58,6 +70,7 @@ const AppLayout = () => {
 					</Navbar.Collapse>
 				</Container>
 			</Navbar>
+			<BackToTopButton />
 			<Outlet />
 			<Footer />
 		</div>

@@ -5,51 +5,57 @@ import { useSearchMovieQuery } from '../../hooks/useSearchMovie';
 import { Container, Col, Row, Button, Spinner, Alert } from 'react-bootstrap';
 import MovieCard from '../../common/MovieCard/MovieCard';
 import ReactPaginate from 'react-paginate';
-import FilteredMovies from './components/FilteredMovies';
-import GenreFilter from './components/Filters/GenreFilter/GenreFilter';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-	toggleFilter,
-	addMovieGenreName,
-	addMovieGenreId,
-} from '../../redux/reducers/filterGenreSlice';
+import { useSelector } from 'react-redux';
+import { useMovieDiscover } from '../../hooks/useMovieDiscover';
+import FilterBox from './components/FilterBox';
 
-const MoviePage = () => {
-	// eslint-disable-next-line
+const MoviesPage = () => {
 	const [query, setQuery] = useSearchParams();
 	const keyword = query.get('q');
+	console.log('키워드', keyword);
+
 	const [page, setPage] = useState(1);
 	const navigate = useNavigate();
+
+	const isDiscover = useSelector((state) => state.discover.isDiscover);
+	const discoverParams = useSelector((state) => state.discover.discoverParams);
 	const { data, isLoading, isError, error } = useSearchMovieQuery({
 		keyword,
 		page,
 	});
-	const dispatch = useDispatch();
-	const [filterCategory, setFilterCategory] = useState(null);
-	const filterValue = useSelector((state) => state.genre.genreId);
-	const isFilter = useSelector((state) => state.genre.isFilter);
-	const genreName = useSelector((state) => state.genre.genreName);
-	console.log(genreName, 'genreName');
-	useEffect(() => {
-		if (isFilter) {
-			// 👇 장르필터 버튼 클릭시 (true일때) 아래 로직 실행
-			if (!keyword) {
-				setPage(1);
-				setFilterCategory('with_genres');
-			}
+	const { data: discoverData } = useMovieDiscover({ discoverParams, page });
+	const [useBasicData, setUseBasicData] = useState(true);
 
-			// 👇 필터버튼 안눌렀을때 (false일때) 기본 실행값
-			// 또는 필터가 눌렸다가 해제됐을때 (null일때) 기본 실행값
+	console.log(
+		'여기무비페이지 키워드랑 데이타',
+		keyword,
+		data,
+		'그리고 isDiscover? ',
+		isDiscover,
+		'무비디스커버파람스',
+		discoverParams
+	);
+
+	useEffect(() => {
+		if (isDiscover) {
+			navigate(
+				`/movies?discover=${discoverParams.sort_by}&${discoverParams.with_genres}&${discoverParams.year}&page=${page}`
+			);
+			if (!keyword) {
+				// setPage(1);
+				setUseBasicData(false);
+			}
+			console.log('유이 디스커버 1- 이즈디스커버 상태 업데이트', isDiscover);
 		} else {
 			if (!keyword) {
-				console.log('MoviePage default without search');
-				navigate(`/movies?page=${page}`); //✅ 그런데 페이지가 안바뀜.. 왜지?
+				setUseBasicData(true);
+				navigate(`/movies?page=${page}`);
 			} else {
-				console.log('MoviePage with keyword search!', keyword);
-				navigate(`/movies?q=${keyword}&page=${page}`); //✅
+				console.log('유이 디스커버 3- 이즈디스커버 상태 업데이트', isDiscover);
+				navigate(`/movies?q=${keyword}&page=${page}`);
 			}
 		} // eslint-disable-next-line
-	}, [isFilter, keyword, filterCategory, filterValue, page]);
+	}, [discoverParams, isDiscover, keyword, page]);
 
 	const handlePageClick = ({ selected }) => {
 		setPage(selected + 1);
@@ -57,11 +63,6 @@ const MoviePage = () => {
 			top: 0,
 			behavior: 'smooth',
 		});
-	};
-	const handleAllMoviesClick = () => {
-		dispatch(toggleFilter(null));
-		navigate('/movies');
-		setPage(1);
 	};
 
 	if (isLoading) {
@@ -85,91 +86,75 @@ const MoviePage = () => {
 	return (
 		<Container>
 			<Row className='movie-row-container'>
-				<Col lg={3} xs={12}>
-					<div className='filters-container'>
-						{isFilter ? (
-							<Row className='filter-genre-name'>
-								<div className='filter-results-of'>
-									Genre: {genreName} <GenreFilter />
-								</div>
-							</Row>
-						) : (
-							<Row className='filter-genre-name'>
-								<div className='filter-results-of'>
-									Genre Filter
-									<GenreFilter />
-								</div>
-							</Row>
-						)}
-						{keyword ? (
-							<>
-								<Row>
-									<div className='search-results-of'>Searched: {keyword}</div>
-								</Row>
-							</>
-						) : null}
+				<>
+					{keyword ? (
+						<>
+							<h4 className='keyword-show'>
+								Searched : &nbsp;<span>{keyword}</span>
+								<Button
+									variant='link'
+									style={{ fontSize: '14px', color: 'red' }}
+									onClick={() => setQuery('q')}
+									className='remove-keyword-btn'>
+									Remove Keyword
+								</Button>
+							</h4>
+						</>
+					) : null}
+				</>
 
-						<Row>
-							{keyword || isFilter ? (
-								<>
-									<Button
-										className='all-movie-btn'
-										onClick={handleAllMoviesClick}>
-										All Movies
-									</Button>
-								</>
-							) : null}
-						</Row>
-					</div>
+				<Col
+					lg={4}
+					xs={12}
+					className='filter-container'
+					style={{ display: 'flex', alignItems: 'center', padding: '10px' }}>
+					<FilterBox keyword={keyword} page={page} />
 				</Col>
-
-				<Col lg={9} xs={12} className='movies-grid'>
-					{data?.results.length === 0 ? (
+				<Col lg={8} xs={12} className='movies-grid'>
+					{data?.results.length === 0 && (
 						<Container className='no-found-box'>
 							<h1 className='no-search-results'>no search result has found</h1>
 						</Container>
-					) : (
-						<>
-							<Row className='movie-cards-container-row'>
-								{isFilter ? (
-									<FilteredMovies
-										filterCategory={filterCategory}
-										filterValue={filterValue}
-										// keyword={keyword}
-									/>
-								) : (
-									data?.results.map((movie, index) => (
-										<Col key={index} lg={4} xs={6}>
-											<MovieCard movie={movie} />
-										</Col>
-									))
-								)}
-							</Row>
-							{!isFilter && (
-								<ReactPaginate
-									lg={12}
-									nextLabel='>'
-									onPageChange={handlePageClick}
-									pageRangeDisplayed={3}
-									marginPagesDisplayed={3}
-									pageCount={data?.total_pages}
-									previousLabel='<'
-									pageClassName='page-item'
-									pageLinkClassName='page-link'
-									previousClassName='page-item'
-									previousLinkClassName='page-link'
-									nextClassName='page-item'
-									nextLinkClassName='page-link'
-									breakLabel='...'
-									breakClassName='page-item'
-									breakLinkClassName='page-link'
-									containerClassName='pagination'
-									activeClassName='active'
-									renderOnZeroPageCount={null}
-									forcePage={page - 1}
-								/>
-							)}
-						</>
+					)}
+					<Row className='movie-cards-container-row'>
+						{useBasicData
+							? data?.results.map((movie, index) => (
+									<Col key={index} lg={4} xs={6}>
+										<MovieCard movie={movie} />
+									</Col>
+							  ))
+							: discoverData?.results.map((movie, index) => (
+									<Col key={index} lg={4} xs={6}>
+										<MovieCard movie={movie} />
+									</Col>
+							  ))}
+					</Row>
+					{((useBasicData && data?.results.length > 0) ||
+						(!useBasicData && discoverData?.results.length > 0)) && (
+						<ReactPaginate
+							lg={12}
+							nextLabel='>'
+							onPageChange={handlePageClick}
+							pageRangeDisplayed={3}
+							marginPagesDisplayed={3}
+							pageCount={
+								useBasicData ? data?.total_pages : discoverData?.total_pages
+							}
+							previousLabel='<'
+							pageClassName='page-item'
+							pageLinkClassName='page-link'
+							previousClassName='page-item'
+							previousLinkClassName='page-link'
+							nextClassName='page-item'
+							nextLinkClassName='page-link'
+							breakLabel='...'
+							breakClassName='page-item'
+							breakLinkClassName='page-link'
+							containerClassName='pagination'
+							activeClassName='active'
+							renderOnZeroPageCount={null}
+							forcePage={page - 1}
+						/>
 					)}
 				</Col>
 			</Row>
@@ -177,4 +162,4 @@ const MoviePage = () => {
 	);
 };
 
-export default MoviePage;
+export default MoviesPage;

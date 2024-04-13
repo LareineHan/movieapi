@@ -15,13 +15,13 @@ import {
 	Button,
 } from 'react-bootstrap';
 import MovieCertification from '../../../../common/MovieCertification/MovieCertification';
+import ModalTrigger from '../../../../common/ModalTrigger/ModalTrigger';
 import { fetchMovieDetail } from '../../../../redux/reducers/movieDetailSlice';
 import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';
-
 const Banner = () => {
 	const { data, isLoading, isError, error } = usePopularMoviesQuery();
-	console.log('ㅇㅇ', data);
+
 	const navigate = useNavigate();
 	const dispatch = useDispatch();
 	const bannerMovie = data?.results[0];
@@ -53,7 +53,6 @@ const Banner = () => {
 			}
 			console.log('Array', array);
 			return array;
-			// return array.join(', ');
 		}
 	};
 	const genreNames = genreName_array();
@@ -107,9 +106,14 @@ const Banner = () => {
 					</Col>
 
 					<Col sm className='banner-extra'>
-						<Row>
+						<Row sm>
+							<Col className='preview-trigger'>
+								<ModalTrigger movieId={bannerMovie?.id} />
+							</Col>
+						</Row>
+						<Row sm>
 							<div className='detail-trigger'>
-								<Button variant='danger' onClick={() => getDetail()}>
+								<Button variant='light' onClick={() => getDetail()}>
 									See Detail &nbsp;
 									<FontAwesomeIcon icon={faPlay} />
 								</Button>

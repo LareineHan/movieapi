@@ -1,0 +1,14 @@
+.remove-btn-row {
+	justify-content: center;
+	display: flex;
+	flex-direction: row;
+}
+.remove-filter-btn button {
+	margin: 1rem 0.5rem 0 0.5rem;
+	background-color: #e50914;
+	color: antiquewhite;
+	border: solid 2px antiquewhite;
+	border-radius: 0;
+	font-size: 1rem;
+	font-weight: bold;
+}

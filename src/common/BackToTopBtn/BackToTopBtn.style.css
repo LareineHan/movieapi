@@ -1,0 +1,15 @@
+.back-to-top {
+	position: fixed;
+	bottom: 50px;
+	right: 50px;
+	border-radius: 50%;
+	color: white;
+	padding: 10px 20px;
+	cursor: pointer;
+	display: none; /* Initially hide the button */
+}
+
+.back-to-top.show {
+	z-index: 50;
+	display: block; /* Show the button when visible state is true */
+}

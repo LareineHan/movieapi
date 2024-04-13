@@ -86,6 +86,7 @@
 @media (max-width: 768px) {
 	.media-list {
 		grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+		grid-gap: 20px;
 	}
 	.title-choices {
 		justify-content: center;

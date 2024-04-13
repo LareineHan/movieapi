@@ -102,4 +102,12 @@
 	.review-title {
 		padding-top: 2rem;
 	}
+	.all-reviews-container,
+	.default-reviews-container {
+		max-width: 100%;
+	}
+	.togglemore-div {
+		max-width: 100%;
+		justify-content: center;
+	}
 }

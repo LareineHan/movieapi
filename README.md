@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# :film_projector: Top Stream :tv:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Top Stream is a React web application that allows users to explore movies using the TMDB (The Movie Database) API.
 
-## Available Scripts
+## Prerequisites
 
-In the project directory, you can run:
+To run this project locally, you'll need to have Node.js (version 18.18.0 or higher) and npm installed on your system. If you don't have these installed, you can download them from [here](https://nodejs.org/).
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone this repository to your local machine using `git clone https://github.com/LareineHan/movieapi.git`.
+2. Navigate to the project directory in your terminal.
+3. Install the project dependencies by running `npm install`.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Usage
 
-### `npm test`
+1. Start the development server by running `npm start`. This will start a local server and automatically open your default web browser to the application. If it doesn't, you can manually navigate to the URL displayed in your terminal (usually `http://localhost:3000`).
+2. To use the application:
+   - Browse movies on the home page.
+   - Use the search bar to find specific movies.
+   - Click on a movie to view detailed information, including trailers.
+   - Filter and sort movies based on genres, release dates, and ratings.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Deployment
 
-### `npm run build`
+The project is deployed using Vercel. You can access the live version [here](https://topstream.vercel.app/).
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Technologies Used
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- React: A JavaScript library for building user interfaces.
+- React Router Dom: For routing within the application.
+- React Redux: For state management.
+- React Query: For data fetching.
+- Redux Toolkit: For creating Redux slices.
+- Bootstrap: For styling and layout.
+- FontAwesome: For icons.
+- Axios: For making HTTP requests to the TMDB API.
+- React YouTube: For displaying trailers.
+- React Paginate: For pagination.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Contributing
 
-### `npm run eject`
+Contributions are welcome! If you'd like to contribute to the project, please fork the repository and submit a pull request with your changes.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## License
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+This project is licensed under the ISC License.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Author
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Lareine Han
 
-## Learn More
+## Thank You!
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Thank you for checking out my project! You can learn more about me and my work at the following links:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- 🌐 [Website](https://lareinehan.com)
+- 💼 [LinkedIn](https://www.linkedin.com/in/lareinehan)
+- 💬 Slack: [@Lareine Han](https://your-slack-workspace.slack.com/team/U04LYMEBKDZ)
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Please feel free to reach out if you have any questions or feedback!
